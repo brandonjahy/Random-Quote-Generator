@@ -13,6 +13,7 @@
 
 const body = document.querySelector('body');
 const endpoint = 'https://talaikis.com/api/quotes/random/';
+var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
 function getQuote() {
     fetch(endpoint)
       .then(function (response) {
@@ -29,6 +30,10 @@ function getQuote() {
     const quoteText = document.querySelector('.quote-text');
     quoteText.textContent = quote;
   }
+   function colors() {
+       body.style.backgroundColor = hue;
+   };
 body.addEventListener('click', getQuote);
+body.addEventListener('click', colors);
 
 getQuote()
